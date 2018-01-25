@@ -2,6 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+function Title() {
+  return (
+      <h1> Tic Tac Whoa! </h1>
+  )
+}
+
 function Square (props) {
   if (props.value === "X") {
     return (
@@ -40,11 +46,6 @@ class Board extends React.Component {
      return
    }
    squares[i] = this.state.xIsNext ? 'X' : 'O'
-   if (this.state.xIsNext === true) {
-      this.state.className = "xstyle"
-   } else if (this.state.xIsNext === false) {
-     this.state.className = "ostyle"
-   }
    console.log(calculateWinner(squares));
 
    this.setState({
@@ -61,15 +62,32 @@ class Board extends React.Component {
     const winner = calculateWinner(this.state.squares)
     console.log(calculateWinner(this.state.squares));
     let status
+    let animalwinner
+
+    if (winner === "X") {
+      animalwinner = 'cow'
+    } else if (winner === "O") {
+      animalwinner = 'horse'
+    }
+
     if (winner) {
-      status = 'Winner' + winner
+      status = 'Winner: ' + animalwinner
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Next player: ' + (this.state.xIsNext ? 'cow' : 'horse');
+    }
+    let hoverColor
+    if (this.state.xIsNext === true) {
+      hoverColor = "xhover"
+    } else if (this.state.xIsNext === false) {
+      hoverColor = "ohover"
+    } else {
+      hoverColor = null
     }
 
     return (
-      <div>
+        <div>
         <div className="status">{status}</div>
+        <div className={hoverColor}>
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
@@ -85,6 +103,7 @@ class Board extends React.Component {
           {this.renderSquare(7)}
           {this.renderSquare(8)}
         </div>
+        </div>
       </div>
     );
   }
@@ -94,6 +113,7 @@ class Game extends React.Component {
   render() {
     return (
       <div className="game">
+        <Title />
         <div className="game-board">
           <Board />
         </div>

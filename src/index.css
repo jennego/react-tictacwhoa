@@ -18,18 +18,18 @@ ol, ul {
 }
 
 .square {
-  background: #fff;
   border: 1px solid #999;
   float: left;
-  font-size: 60px;
-  font-weight: bold;
+  font-size: 0px;
   line-height: 34px;
-  height: 100px;
+  height: 200px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 100px;
+  width: 200px;
+  background-color: green;
+
 }
 
 .square:focus {
@@ -37,7 +37,6 @@ ol, ul {
 }
 
 .kbd-navigation .square:focus {
-  background: #ddd;
 }
 
 .game {
@@ -49,9 +48,22 @@ ol, ul {
   margin-left: 20px;
 }
 
-.xstyle {
-  color:red;
+.square.xstyle {
+  background-size: cover;
+  background-image:url('./img/cow.png');
 }
-.ostyle {
-  color: blue;
+
+.square.ostyle {
+  background-size: cover;
+  background-image:url('./img/horse.png');
+}
+
+.xhover .square:hover {
+  background-color: rgba(255, 25, 0, 0.5);
+  color: white;
+}
+
+.ohover .square:hover {
+  background-color:rgba(18, 91, 177, 0.5);
+  color:white;
 }
