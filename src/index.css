@@ -1,6 +1,11 @@
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
   margin: 20px;
+  background-image: url('./img/grass.jpg');
+  background-size: 90%;
+  background-repeat: repeat;
+  color: white;
+  font-size: 15px;
 }
 
 ol, ul {
@@ -17,19 +22,22 @@ ol, ul {
   margin-bottom: 10px;
 }
 
+
 .square {
-  border: 1px solid #999;
+  border-image-source:url('./img/fence2.PNG');
+  border-image-slice: 50%;
+  border-image-width: 0px 200px 100px 200px;
+  border-left: brown solid 2px;
   float: left;
   font-size: 0px;
   line-height: 34px;
   height: 200px;
-  margin-right: -1px;
+  margin-right: 2px;
+  margin-left: 2px;
   margin-top: -1px;
-  padding: 0;
   text-align: center;
   width: 200px;
-  background-color: green;
-
+  background-color: rgba(18, 126, 8, 0.6)
 }
 
 .square:focus {
@@ -49,13 +57,21 @@ ol, ul {
 }
 
 .square.xstyle {
-  background-size: cover;
+  background-size: contain;
   background-image:url('./img/cow.png');
+  background-repeat: no-repeat;
+  background-position: bottom;
 }
 
 .square.ostyle {
-  background-size: cover;
+  background-size: contain;
   background-image:url('./img/horse.png');
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.square.active {
+  background: red;
 }
 
 .xhover .square:hover {
@@ -66,4 +82,27 @@ ol, ul {
 .ohover .square:hover {
   background-color:rgba(18, 91, 177, 0.5);
   color:white;
+}
+
+
+.game-container {
+  display: flex;
+}
+
+.game-info {
+  padding: 10px;
+  margin: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  max-width: 50%;
+}
+
+.status {
+  background-color: rgba(0, 0, 0, 0.4);
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 20px;
+}
+
+a {
+  color: rgb(13, 185, 223);
 }

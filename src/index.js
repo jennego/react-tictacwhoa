@@ -84,6 +84,8 @@ class Board extends React.Component {
       hoverColor = null
     }
 
+
+
     return (
         <div>
         <div className="status">{status}</div>
@@ -112,14 +114,16 @@ class Board extends React.Component {
 class Game extends React.Component {
   render() {
     return (
-      <div className="game">
+      <div className="game-container">
+        <div className="game-info">
         <Title />
+        <p> React.js's tictictoe tutorial. Now with cows and horses. </p>
+        <p> NOT MOBILE FREINDLY! For now. Sorry.</p>
+          <a href='https://www.freepik.com/free-vector/farm-elements-design_965160.htm'>Aniamls Designed by Freepik</a> <br />
+          <a href="https://www.freepik.com/free-photo/texture-grass-field_969742.htm">Grass Designed by Freepik</a>
+        </div>
         <div className="game-board">
           <Board />
-        </div>
-        <div className="game-info">
-          <div>{/* status */}</div>
-          <ol>{/* TODO */}</ol>
         </div>
       </div>
     );
